@@ -1,14 +1,25 @@
 import './App.css';
-import { Input, Button } from 'antd';
+import Login from './Login';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+import Register from './Register';
 
 function App() {
   return (
     <div className="App">
-      <Input className="child" placeholder="Username"></Input>
-      <Input className="child" placeholder="Password"></Input>
-      <Button  className="child" type="primary">Log In</Button>
-      <span className="child" >Not registered yet? <a href="google.com">Create an account</a></span>
-
+      <Router>
+        <Switch>
+          <Route path="/register">
+            <Register />
+          </Route>
+          <Route path="/">
+            <Login />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
