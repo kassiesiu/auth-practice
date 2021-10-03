@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const port = 8080;
 
-const cors = {
+const corsOptions = {
     origin: "http://localhost:3000"
 }
 
@@ -11,7 +11,8 @@ const resObj = {
     "message": "I am Alive!"
 };
 
-app.get('/healthcheck', (req, res) => {
+
+app.get('/healthcheck', cors(corsOptions), (req, res) => {
     res.send(resObj);
 });
 
