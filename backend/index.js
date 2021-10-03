@@ -3,9 +3,9 @@ const express = require('express');
 const app = express();
 const port = 8080;
 
-// const cors = {
-//     origin: "https://backend.auth-practice.com"
-// }
+const cors = {
+    origin: "http://localhost:3000"
+}
 
 const resObj = {
     "message": "I am Alive!"
