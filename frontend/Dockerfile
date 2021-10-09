@@ -1,5 +1,5 @@
 # Build React 
-FROM node:14 as stage
+FROM node:14 as frontend_stage
 WORKDIR /app
 COPY ./package.json .
 RUN npm install
@@ -8,10 +8,9 @@ RUN npm run build
 
 # NGINX - TODO pick a version
 FROM nginx:latest
-WORKDIR /usr/share/nginx/html
+WORKDIR /etc/nginx/html
 RUN rm -rf ./*
-COPY --from=stage /app/build .
-# COPY ./default.conf /etc/nginx/conf.d/default.conf
-EXPOSE 80
+COPY --from=frontend_stage /app/build .
+COPY ./default.conf /etc/nginx/conf.d/default.conf
+EXPOSE 8080
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
-
