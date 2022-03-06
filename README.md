@@ -7,5 +7,9 @@
 
 ## Features
 - User's browser is given a JWT signed by the backend. 
+- User can log in or register
+- Authenticated users receive a page with their username
 
-## Frontend - React
+## TO DO
+- Move URIs to .env file
+

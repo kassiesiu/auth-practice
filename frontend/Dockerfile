@@ -2,7 +2,7 @@
 FROM node:14 as frontend_stage
 WORKDIR /app
 COPY ./package.json .
-RUN npm install
+RUN yarn install
 COPY . ./
 RUN npm run build
 
